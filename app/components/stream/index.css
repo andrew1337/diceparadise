@@ -1,0 +1,27 @@
+.stream-box {
+    background: #0f2953 url("../../assets/logo.svg") no-repeat center;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    min-width: -webkit-fill-available;
+    min-width: available;
+    margin: 0 auto;
+    max-height: 52vh;
+    overflow: hidden;
+}
+
+.frame {
+    position: absolute;
+    width: -webkit-fill-available;
+    width: available;
+    height: -webkit-fill-available;
+    height: available;
+}
+
+.video {
+    width: 100%;
+}
+  

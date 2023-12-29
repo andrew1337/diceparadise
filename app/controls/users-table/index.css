@@ -1,0 +1,41 @@
+.usernames {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.usernames * {
+  font-size: 2vw;
+}
+
+.usernames-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr repeat(4, 0.5fr);
+  gap: 0.5vw;
+  padding: 0.5vw;
+}
+
+.usernames-row > div {
+  text-align: center;
+  padding: 0.5vw;
+}
+
+.usernames-row > input[type='number'] {
+  width: 45px;
+}
+
+.usernames-input {
+  background-color: #e8b01e;
+  padding: 0.5vw;
+}
+
+.reset {
+  padding: 1vw;
+  margin: 3vw;
+  align-self: end;
+  background: orange;
+}
+
+.reset.all {
+  background: red;
+}

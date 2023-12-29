@@ -1,0 +1,46 @@
+.results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4vw;
+  font-size: 2vw;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  color: #e8b01e;
+  gap: 0.3vw;
+}
+
+.row {
+  display: grid;
+  gap: 0.3vw;
+  grid-template-columns: 10vw repeat(4, 6vw);
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5vw;
+  margin-right: 1vw;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5vw;
+  border: 2px solid #e8b01e;
+  background-color: #0e254c;
+}
+
+.sum {
+  font-size: 3vw;
+  color: #fff;
+}
+
+.green {
+  border: 2px solid #4de81e;
+}

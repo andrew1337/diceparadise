@@ -1,2 +1,41 @@
 /* import null style */
 @import "nullstyle.css";
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2.3fr;
+    align-items: center;
+    gap: 6vw;
+    padding: 4vh 6vw;
+    background-color: #163669;
+    background-image: url(./assets/bg.png);
+    background-size: contain;
+}
+
+.controls {
+    font-size: 2vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: #163669;
+    color: #e8b01e;
+}
+
+.count {
+    padding: 1vw;
+}
+
+.countItem {
+    display: flex;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.countItem * {
+    cursor: pointer;
+}
+
+.countItem label {
+    width: 100px;
+}
