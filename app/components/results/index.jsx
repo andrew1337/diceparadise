@@ -1,6 +1,6 @@
 import React, {useMemo} from "react";
-import "./index.css";
 import useLocalStorage from "../../utils/useLocalStorage";
+import "./index.css";
 
 const Results = () => {
     const [users] = useLocalStorage("usernames", []);
@@ -13,8 +13,10 @@ const Results = () => {
                 {list.map((user, index) => {
                     const sum = user.dice_1 + user.dice_2 + user.dice_3;
                     const green = list.length === 12 && index < 6 && !!sum;
+                    const win = sum === 18;
+
                     return (
-                        <div className="row" key={user.id}>
+                        <div className={`row ${win && 'win'}`} key={user.id}>
                             <div className='name'>{user.name}</div>
                             <div className={`count ${green && 'green'}`}>
                                 {user.dice_1 || '-'}
