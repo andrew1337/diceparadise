@@ -63,6 +63,7 @@ const Controls = () => {
 
     return (
         <div className="controls">
+            <div>
             <div className='count'>
                 Start count of users:
                 <div className='item'>
@@ -85,6 +86,7 @@ const Controls = () => {
                     resetAll={handleReset}
                 />
             )}
+            </div>
             {count === 6 && (
                 <Prizes
                     prizes={prizes}
