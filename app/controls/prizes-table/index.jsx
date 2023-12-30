@@ -25,14 +25,14 @@ export const Prizes = ({ prizes, setPrizes }) => {
                         />
                     </div>
                 ))}
+                <button
+                    className="reset"
+                    type='button'
+                    onClick={resetPrizes}
+                >
+                    Reset prizes
+                </button>
             </div>
-            <button
-                className="reset"
-                type='button'
-                onClick={resetPrizes}
-            >
-                Reset prizes
-            </button>
         </>
     );
 };

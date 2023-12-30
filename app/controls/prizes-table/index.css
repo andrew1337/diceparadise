@@ -1,3 +1,5 @@
-.prizes-row {
-    white-space: nowrap;
+.prizes {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
