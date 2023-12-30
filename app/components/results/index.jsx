@@ -9,8 +9,9 @@ const Results = () => {
 
     const [users] = useLocalStorage("usernames", []);
 
-    const sorted = useMemo(() => users.sort((a, b) =>
-        (b.dice_1 + b.dice_2 + b.dice_3) - (a.dice_1 + a.dice_2 + a.dice_3)), [users]);
+    const sorted = useMemo(() => users
+    .sort((a, b) => b.primary_roll - a.primary_roll || b.optional_roll - a.optional_roll),
+    [users]);
 
     useEffect(() => {
         if (users.length !== $prev.current) {
@@ -23,12 +24,11 @@ const Results = () => {
     return (
         <div className="results">
             <div className="table" ref={$box}>
-                {users.map(user => {
-                    const sum = user.dice_1 + user.dice_2 + user.dice_3;
+                {users.map((user, i) => {
                     const index = sorted.findIndex(item => item.id === user.id)
 
-                    const green = users.length === 12 && index < 6 && !!sum;
-                    const win = sum === 18;
+                    const green = users.length === 12 && index < 6 && !!user.primary_roll;
+                    const win = user.primary_roll === 18 || user.optional_roll === 18;
 
 
                     return (
@@ -40,15 +40,10 @@ const Results = () => {
                             >
                                 <div className='name'>{user.name}</div>
                                 <div className={`count ${green && 'green'}`}>
-                                    {user.dice_1 || '-'}
+                                    {win ? "Jackpot" : i + 1}
                                 </div>
-                                <div className={`count ${green && 'green'}`}>
-                                    {user.dice_2 || '-'}
-                                </div>
-                                <div className={`count ${green && 'green'}`}>
-                                    {user.dice_3 || '-'}
-                                </div>
-                                <div className={`count sum ${green && 'green'}`}>{sum}</div>
+                                <div className={`count sum ${green && 'green'}`}>{user.primary_roll}</div>
+                                <div className={`count sum ${green && 'green'}`}>{user.optional_roll}</div>
                             </div>
                         </Fragment>
                     )

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import "./index.css";
 
@@ -6,11 +8,21 @@ export const UserNames = ({ usernames, setUsers, resetDices, resetAll }) => {
         usernames.map(user => (user.id === current ? {...user, name: value} : user)),
     );
 
-    const handleUpdateScore = (value, current, index) => setUsers(
+    const handleUpdateScore = (value, current, index) => {
+        // if (!value) {
+        //     return;
+        // }
+        // if (value < 3 || value > 18) {
+        //     // empty current input 
+        //     value = "";
+        //     return;
+        // }
+        setUsers(
         usernames.map(user => (user.id === current ?
                 {...user, [index]: Number(value)} :
                 user))
-    );
+        );
+    };
 
     return (
         <>
@@ -25,28 +37,29 @@ export const UserNames = ({ usernames, setUsers, resetDices, resetAll }) => {
                             onChange={(event) => handleUserInput(event.target.value, user.id)}
                             placeholder="Enter player name"
                         />
-                        <div>Dices</div>
+                        <div>Primary roll</div>
                         <input
                             type='number'
-                            min={1}
-                            max={6}
-                            value={user.dice_1 || undefined}
-                            onChange={event => handleUpdateScore(event.target.value, user.id, 'dice_1')}
+                            min={3}
+                            max={18}
+                            value={user.primary_roll || undefined}
+                            onChange={event => handleUpdateScore(event.target.value, user.id, 'primary_roll')}
                         />
+                        <div>Optional roll</div>
                         <input
                             type='number'
-                            min={1}
-                            max={6}
-                            value={user.dice_2 || undefined}
-                            onChange={event => handleUpdateScore(event.target.value, user.id, 'dice_2')}
+                            min={3}
+                            max={18}
+                            value={user.optional_roll || undefined}
+                            onChange={event => handleUpdateScore(event.target.value, user.id, 'optional_roll')}
                         />
-                        <input
+                        {/* <input
                             type='number'
                             min={1}
                             max={6}
                             value={user.dice_3 || undefined}
                             onChange={event => handleUpdateScore(event.target.value, user.id, 'dice_3')}
-                        />
+                        /> */}
                     </div>
                 ))}
             </div>
