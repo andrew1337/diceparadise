@@ -11,12 +11,21 @@
   flex-direction: column;
   color: #e8b01e;
   gap: 0.3vw;
+  position: relative;
 }
 
 .row {
   display: grid;
   gap: 0.3vw;
   grid-template-columns: 10vw repeat(4, 6vw);
+  font-size: 24px;
+  height: 49px;
+  position: absolute;
+  transition: all 1s ease-out;
+}
+
+.row.invisible {
+  position: relative;
 }
 
 .name {
@@ -34,10 +43,11 @@
   padding: 0.5vw;
   border: 2px solid #e8b01e;
   background-color: #0e254c;
+  color: #e8b01e;
 }
 
 .sum {
-  font-size: 3vw;
+  font-size: 32px;
   color: #fff;
 }
 
