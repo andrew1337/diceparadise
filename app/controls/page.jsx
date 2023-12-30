@@ -12,7 +12,8 @@ const defaultUser = {
     optional_roll: 0,
 };
 
-export const defaultPrizes = [0, 0, 0, 0, 0, 0];
+const defaultPrizes = [0, 0, 0, 0, 0, 0];
+
 const Controls = () => {
     const onLoad = typeof window !== "undefined" && JSON.parse(window.localStorage?.getItem('users'));
     const [count, acrualsetCount] = useState(onLoad?.length);
