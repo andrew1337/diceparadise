@@ -7,7 +7,8 @@ const Results = () => {
     const $prev = useRef(null);
     const [boxHeight, setHeight] = useState(0);
 
-    const [users] = useLocalStorage("usernames", []);
+    const [users] = useLocalStorage("users", []);
+    const [prizes] = useLocalStorage("prizes", []);
 
     const sorted = useMemo(() => users
     .sort((a, b) => b.primary_roll - a.primary_roll || b.optional_roll - a.optional_roll),
@@ -29,7 +30,7 @@ const Results = () => {
 
                     const green = users.length === 12 && index < 6 && !!user.primary_roll;
                     const win = user.primary_roll === 18 || user.optional_roll === 18;
-
+                    const withPrize = users.length === 6 && !!prizes;
 
                     return (
                         <Fragment key={user.id}>
@@ -42,8 +43,10 @@ const Results = () => {
                                 <div className={`count ${green && 'green'}`}>
                                     {win ? "Jackpot" : i + 1}
                                 </div>
+                                {console.log(prizes)}
                                 <div className={`count sum ${green && 'green'}`}>{user.primary_roll}</div>
                                 <div className={`count sum ${green && 'green'}`}>{user.optional_roll}</div>
+                                <div className="prize">{withPrize && prizes[i] > 0 && prizes[i] + ' Gel'}</div>
                             </div>
                         </Fragment>
                     )

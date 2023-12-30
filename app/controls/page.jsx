@@ -3,6 +3,7 @@
 import React, {useCallback, useEffect, useState} from "react";
 import useLocalStorage from "../utils/useLocalStorage";
 import {UserNames} from "./users-table";
+import {Prizes} from "./prizes-table";
 
 const defaultUser = {
     id: 0,
@@ -11,11 +12,12 @@ const defaultUser = {
     optional_roll: 0,
 };
 
+export const defaultPrizes = [0, 0, 0, 0, 0, 0];
 const Controls = () => {
-    const onLoad = typeof window !== "undefined" && JSON.parse(window.localStorage?.getItem('usernames'));
+    const onLoad = typeof window !== "undefined" && JSON.parse(window.localStorage?.getItem('users'));
     const [count, acrualsetCount] = useState(onLoad?.length);
-    const [usernames, setUsers] = useLocalStorage("usernames", onLoad || []);
-
+    const [usernames, setUsers] = useLocalStorage("users", onLoad || []);
+    const [prizes, setPrizes] = useLocalStorage("prizes", defaultPrizes);
 
     const setCount = (value) => {
         acrualsetCount(value);
@@ -80,6 +82,12 @@ const Controls = () => {
                     setUsers={setUsers}
                     resetDices={handleResetDices}
                     resetAll={handleReset}
+                />
+            )}
+            {count === 6 && (
+                <Prizes
+                    prizes={prizes}
+                    setPrizes={setPrizes}
                 />
             )}
         </div>
