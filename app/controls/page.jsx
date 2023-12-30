@@ -61,12 +61,12 @@ const Controls = () => {
         <div className="controls">
             <div className='count'>
                 Start count of users:
-                <div className='countItem'>
+                <div className='item'>
                     <input type="radio" name="count" id='12' value={12} checked={count === 12}
                            onChange={() => setCount(12)}/>
                     <label htmlFor="12">12</label>
                 </div>
-                <div className='countItem'>
+                <div className='item'>
                     <input type="radio" name="count" id='6' value={6} checked={count === 6}
                            onChange={() => setCount(6)}/>
                     <label htmlFor='6'>6</label>
